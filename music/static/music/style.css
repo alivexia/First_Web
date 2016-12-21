@@ -1,0 +1,29 @@
+body{
+    background: white url("images/bg.png");
+    font-family: 'Finger Paint';
+}
+
+a{
+    font-family: 'Finger Paint';
+}
+
+li{
+    float: left;
+    list-style: none;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-weight: 900;
+}
+
+pre{
+white-space:pre-wrap;
+}
+
+.navbar{
+    border-radius: 0;
+}
+
+.navbar-brand{
+    font-family: 'Finger Paint';
+}

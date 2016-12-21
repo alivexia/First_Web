@@ -1,0 +1,59 @@
+{% extends 'music/base.html' %}
+
+{% load myfilters %}
+
+{% block title %}{{ album }}-{{ album.artist }}{% endblock %}
+
+{% block body%}
+
+    <table width="600" border="0" cellspacing="0" cellpadding="0" xmlns="http://www.w3.org/1999/html"
+           xmlns="http://www.w3.org/1999/html">
+        <tr>
+            <td width="250"><img data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" style="width: 200px; height: 200px;" src="{{ album.album_logo }}" data-holder-rendered="true"></td>
+            <td>
+                <h2>专辑：{{ album.album_title }}</h2>
+                <h4>歌手：{{ album.artist }}</h4>
+                <h4>流派：{{ album.genre }}</h4>
+            </td>
+        </tr>
+
+    </table>
+    <div class="content" style="width: 1000px" >
+        <h4>专辑介绍：</h4>
+        <p style="line-height: 1.8">
+            {{ album.album_introduction|safe|keep_spacing }}
+        </p>
+    </div>
+
+
+    <div style="width: 55%">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h4 class="panel-title">包含歌曲列表</h4>
+        </div>
+        <div class="panel-body">
+            <div class="col-md-6" style="width: 100%">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>歌曲标题</th>
+                            <th>歌手</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for song in album.song_set.all %}
+                            <tr>
+                                <td>{{ song.id }}</td>
+                                <td>{{ song.song_title }}</td>
+                                <td>{{ album.artist }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>
+
+{% endblock %}
